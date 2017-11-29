@@ -6,9 +6,9 @@ class App extends Component {
   // State is only available in components which extend
   state = {
     persons: [
-      { name: 'Cecile', age: 25 },
-      { name: 'Jeanne', age: 28 },
-      { name: 'Leon', age: 24 }
+      { id: '1', name: 'Cecile', age: 25 },
+      { id: '2', name: 'Jeanne', age: 28 },
+      { id: '3', name: 'Leon', age: 24 }
     ],
 
     showPersons: false
@@ -58,7 +58,8 @@ class App extends Component {
             return <Person
               click={() => this.deletePersonHandler(index)}
               name={person.name}
-              age={person.age} />
+              age={person.age}
+              key={person.id} />
           })}
         </div>
       );
