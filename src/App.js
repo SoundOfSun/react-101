@@ -34,19 +34,30 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '10px 15px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Hi, I'm a react app!</h1>
         <p>This is really working.</p>
-        <button onClick={() => this.switchNameHandler('Cecilia!!')}>Switch Name</button>
+        <button
+          style={style}
+          onClick={() => this.switchNameHandler('Cecilia!!')}>Switch Name</button>
         <Person name={this.state.persons[0].name}
-        age={this.state.persons[0].age}
-        click={this.switchNameHandler.bind(this, 'Cecilia')} />
+          age={this.state.persons[0].age}
+          click={this.switchNameHandler.bind(this, 'Cecilia')} />
         <Person name={this.state.persons[1].name}
-        age={this.state.persons[1].age}
-        changed={this.nameChangedHandler}>My hobbies: Painting.</Person>
-        <Person name={this.state.persons[2].name}
-        age={this.state.persons[2].age} />
+          age={this.state.persons[1].age}
+          changed={this.nameChangedHandler}>My hobbies: Painting.</Person>
+        <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age} />
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'is it working?'));
