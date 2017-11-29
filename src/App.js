@@ -25,14 +25,24 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
-  nameChangedHandler = (event) => {
-    this.setState( {
-      persons: [
-      { name: 'Cecile', age: 25 },
-      { name: event.target.value, age: 28 },
-      { name: 'Leonard', age: 23 }
-      ]
-    })
+  nameChangedHandler = (event, id) => {
+    // Find a single person
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    // immutable : create copy
+    const person = {...this.state.persons[personIndex]};
+
+    // change the name
+    person.name = event.target.value;
+
+    // modify array
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    // update persons with the updated copy above
+    this.setState( { persons: persons } );
   }
 
   togglePersonsHandler = () => {
@@ -59,7 +69,8 @@ class App extends Component {
               click={() => this.deletePersonHandler(index)}
               name={person.name}
               age={person.age}
-              key={person.id} />
+              key={person.id}
+              changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
       );
