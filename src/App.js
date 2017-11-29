@@ -15,7 +15,11 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    // ALWAYS uptade state in an immutable fashion: not on original state itself
+    // Good practice 1: use a copy of the array with .slice()
+    // const persons = this.state.persons.slice();
+    // Good practice 2: use ES6 spread operator ...
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     // set the state of persons to the updates persons above
     this.setState({persons: persons});
