@@ -1,8 +1,6 @@
 import React from 'react';
 import './Person.css';
 
-{/* Create a component the ES6 way */}
-
 const person = (props) => {
   return (
     <div className="Person">
