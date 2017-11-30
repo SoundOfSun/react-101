@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Radium from 'radium';
 
 class App extends Component {
   // State is only available in components which extend
@@ -102,7 +103,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
+
 
 {/* This is a comment on a JS / JSX file
   For each .js file, go to
