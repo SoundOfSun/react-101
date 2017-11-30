@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
 
 class App extends Component {
   // State is only available in components which extend
@@ -58,11 +57,7 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid black',
       padding: '10px 15px',
-      cursor: 'pointer'
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
+      cursor: 'pointer',
     };
 
     let persons = null;
@@ -82,10 +77,7 @@ class App extends Component {
       );
 
       style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      };
+    }
 
     const classes = [];
     if (this.state.persons.length <= 2) {
@@ -110,10 +102,6 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
 
 
-{/* This is a comment on a JS / JSX file
-  For each .js file, go to
-  view > syntax > open all > babel > JS (react)
-*/}
