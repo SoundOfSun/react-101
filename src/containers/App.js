@@ -5,16 +5,39 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  // State is only available in components which extend
-  state = {
-    persons: [
-      { id: '1', name: 'Cecile', age: 25 },
-      { id: '2', name: 'Jeanne', age: 28 },
-      { id: '3', name: 'Leon', age: 24 }
-    ],
-
-    showPersons: false
+  constructor(props) {
+    // Inside here, can access props.XY
+    // call super to overwrite React default constructor
+    super(props);
+    console.log('[App.js] Inside constructor', props);
+    this.state = {
+      persons: [
+        { id: '1', name: 'Cecile', age: 25 },
+        { id: '2', name: 'Jeanne', age: 28 },
+        { id: '3', name: 'Leon', age: 24 }
+      ],
+      showPersons: false
+    };
   }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount');
+  }
+
+  // State is only available in components which extend
+  // state = {
+  //   persons: [
+  //     { id: '1', name: 'Cecile', age: 25 },
+  //     { id: '2', name: 'Jeanne', age: 28 },
+  //     { id: '3', name: 'Leon', age: 24 }
+  //   ],
+
+  //   showPersons: false
+  // }
 
   deletePersonHandler = (personIndex) => {
     // ALWAYS uptade state in an immutable fashion: not on original state itself
@@ -53,6 +76,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] Inside render')
+
     let persons = null;
 
     if (this.state.showPersons) {
