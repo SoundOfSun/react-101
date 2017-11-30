@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Person from '../components/Persons/Person/Person';
 
 class App extends Component {
   // State is only available in components which extend
@@ -60,13 +59,12 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             // The key is always on the outer element in a map method
-            return <ErrorBoundary key={person.id}>
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                changed={(event) => this.nameChangedHandler(event, person.id)} />
-            </ErrorBoundary>
+            return <Person
+              click={() => this.deletePersonHandler(index)}
+              name={person.name}
+              key={person.id}
+              age={person.age}
+              changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
       );
