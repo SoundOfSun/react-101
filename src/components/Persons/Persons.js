@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Person from './Person/Person';
 
-class Persons extends Component {
+class Persons extends PureComponent {
   constructor(props) {
     // Inside here, can access props.XY
     // call super to overwrite React default constructor
@@ -21,14 +21,14 @@ class Persons extends Component {
     console.log('[UPDATE Persons.js] Inside componentWillReceiveProps', nextProps);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[UPDATE Persons.js] Inside shouldComponentUpdate', nextProps, nextState);
-    // Immutable approach of udpating persons array
-    return nextProps.persons !== this.props.persons ||
-      nextProps.changed !== this.props.changed ||
-      nextProps.clicked !== this.props.clicked;
-    // return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[UPDATE Persons.js] Inside shouldComponentUpdate', nextProps, nextState);
+  //   // Immutable approach of udpating persons array
+  //   return nextProps.persons !== this.props.persons ||
+  //     nextProps.changed !== this.props.changed ||
+  //     nextProps.clicked !== this.props.clicked;
+  //   // return true;
+  // }
 
   componentWillUpdate(nextProps, nextState) {
     console.log('[UPDATE Persons.js] Inside componentWillUpdate', nextProps, nextState);
